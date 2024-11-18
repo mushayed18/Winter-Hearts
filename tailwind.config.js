@@ -10,9 +10,6 @@ export default {
         poppins: ["Poppins", "sans-serif"]
       }
     },
-    colors: {
-      theme: '#EF4323',
-    }
   },
   plugins: [
     require('daisyui'),

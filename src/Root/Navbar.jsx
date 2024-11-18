@@ -3,8 +3,8 @@ import icon from "../assets/icon.png"
 
 const Navbar = () => {
   const links = (
-    <div className="font-normal text-base flex flex-col md:flex-row gap-3 md:gap-7">
-      <NavLink>Home</NavLink>
+    <div className="font-normal text-base flex flex-col lg:flex-row gap-3 md:gap-7">
+      <NavLink className='text-slate-700'>Home</NavLink>
       <NavLink>Donation campaigns</NavLink>
       <NavLink>How to Help</NavLink>
       <NavLink>Dashboard</NavLink>
@@ -34,7 +34,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -48,7 +48,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <p className="btn">Login</p>
+          <p className="btn border">Login</p>
         </div>
       </div>
     </div>
