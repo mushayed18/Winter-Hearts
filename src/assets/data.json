@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "title": "Warm Clothes for Dhaka Slums",
+        "image": "https://i.ibb.co.com/3cnM2jZ/1.jpg",
+        "description": "Providing warm clothes to underprivileged families in the slum areas of Dhaka.",
+        "status": "Ongoing",
+        "contactInfo": "+8801234567890",
+        "division": "Dhaka"
+    },
+    {
+        "id": 2,
+        "title": "Helping Hand in Dhaka City",
+        "image": "https://i.ibb.co.com/HDZ4LW5/2.jpg",
+        "description": "A campaign to collect winter clothes and distribute them to homeless individuals in Dhaka city.",
+        "status": "Ongoing",
+        "contactInfo": "+8806677889900",
+        "division": "Dhaka"
+    },
+    {
+        "id": 3,
+        "title": "Blankets for Chattogram Hills",
+        "image": "https://i.ibb.co.com/s5F5pbp/3.jpg",
+        "description": "Distributing blankets to tribal communities in the hilly areas of Chattogram.",
+        "status": "Ongoing",
+        "contactInfo": "+8801987654321",
+        "division": "Chattogram"
+    },
+    {
+        "id": 4,
+        "title": "Winter Kits for Coastal Chattogram",
+        "image": "https://i.ibb.co.com/7VJ4q0B/4.jpg",
+        "description": "Providing winter kits to fishermen and coastal families in Chattogram.",
+        "status": "Upcoming",
+        "contactInfo": "+8803344556677",
+        "division": "Chattogram"
+    },
+    {
+        "id": 5,
+        "title": "Winter Relief for Sylhet Tea Gardens",
+        "image": "https://i.ibb.co.com/mBBR6Vn/5.jpg",
+        "description": "Supporting tea garden workers in Sylhet with winter essentials.",
+        "status": "Upcoming",
+        "contactInfo": "+8801122334455",
+        "division": "Sylhet"
+    },
+    {
+        "id": 6,
+        "title": "Warm Clothes Drive in Sylhet Villages",
+        "image": "https://i.ibb.co.com/7R57fXL/6.jpg",
+        "description": "A donation drive to distribute warm clothes to rural villages in Sylhet.",
+        "status": "Ongoing",
+        "contactInfo": "+8809988776655",
+        "division": "Sylhet"
+    },
+    {
+        "id": 7,
+        "title": "Warm Clothes for Rajshahi Families",
+        "image": "https://i.ibb.co.com/k2DsCCT/7.jpg",
+        "description": "Providing warm clothes to underprivileged families in Rajshahi.",
+        "status": "Completed",
+        "contactInfo": "+8805566778899",
+        "division": "Rajshahi"
+    },
+    {
+        "id": 8,
+        "title": "Blankets for Rajshahi Farmers",
+        "image": "https://i.ibb.co.com/fFd3x8M/8.jpg",
+        "description": "Distributing blankets to farmers in rural Rajshahi to protect them from winter cold.",
+        "status": "Ongoing",
+        "contactInfo": "+8807788990011",
+        "division": "Rajshahi"
+    },
+    {
+        "id": 9,
+        "title": "Winter Clothing Drive for Khulna Orphans",
+        "image": "https://i.ibb.co.com/tXB7CNg/9.jpg",
+        "description": "Distributing winter clothing to orphanages in Khulna.",
+        "status": "Ongoing",
+        "contactInfo": "+8802233445566",
+        "division": "Khulna"
+    },
+    {
+        "id": 10,
+        "title": "Warmth for Khulna Villages",
+        "image": "https://i.ibb.co.com/tQ2rqN9/10.jpg",
+        "description": "Collecting and providing warm clothes and blankets for vulnerable families in Khulna.",
+        "status": "Ongoing",
+        "contactInfo": "+8803344556677",
+        "division": "Khulna"
+    }
+]

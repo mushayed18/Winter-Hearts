@@ -41,14 +41,14 @@ const Navbar = () => {
           </div>
           <div className="flex items-center">
             <img className="w-8 h-8" src={icon} alt="" />
-            <p className="btn btn-ghost text-xl">WinterHearts</p>
+            <p className="btn btn-ghost text-xl p-0">WinterHearts</p>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <p className="btn">Button</p>
+          <p className="btn">Login</p>
         </div>
       </div>
     </div>
