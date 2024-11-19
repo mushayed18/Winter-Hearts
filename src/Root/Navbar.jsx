@@ -1,11 +1,31 @@
+
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import icon from "../assets/icon.png"
+import icon from "../assets/icon.png";
 
 const Navbar = () => {
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      setLastScrollY(window.scrollY); 
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   const links = (
     <div className="font-normal text-base flex flex-col lg:flex-row gap-3 md:gap-7">
-      <NavLink className='text-slate-700'>Home</NavLink>
-      <NavLink>Donation campaigns</NavLink>
+      <NavLink to='/'>Home</NavLink>
+      <NavLink to='/donation-campaigns'>Donation campaigns</NavLink>
       <NavLink>How to Help</NavLink>
       <NavLink>Dashboard</NavLink>
     </div>
@@ -13,7 +33,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div
+        className={`navbar bg-base-300 ${showNavbar ? "top-0" : "-top-24"} transition-all duration-300 fixed w-full z-50`}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,7 +70,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <p className="btn border">Login</p>
+          <p className="btn border bg-[#EF4323] text-white">Login</p>
         </div>
       </div>
     </div>
@@ -56,3 +78,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

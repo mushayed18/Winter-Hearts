@@ -1,16 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import './App.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import "./App.css";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Root from './Root/Root';
-import ErrorPage from './Pages/ErrorPage';
-import Home from './Pages/Home';
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./Root/Root";
+import ErrorPage from "./Pages/ErrorPage";
+import Home from "./Pages/Home";
+import AuthProvider from "./Provider/AuthProvider";
+import DonationCampaign from "./Pages/DonationCampaign";
 
 const router = createBrowserRouter([
   {
@@ -22,13 +20,18 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: "/donation-campaigns",
+        element: <DonationCampaign></DonationCampaign>,
+      },
     ],
   },
 ]);
 
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
-)
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  </StrictMode>
+);

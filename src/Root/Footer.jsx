@@ -3,7 +3,7 @@ const Footer = () => {
     <div>
       <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
         <div>
-            <h3 className="font-bold text-xl text-[#EF4323]">Contact Us</h3>
+            <h3 className="font-bold text-2xl text-[#EF4323]">Contact Us</h3>
             <p>Email: winter.heart@gmail.com</p>
             <p>Phone: +31 85 964 47 25</p>
         </div>
