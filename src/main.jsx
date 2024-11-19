@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import "./App.css";
+import 'animate.css';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root/Root";

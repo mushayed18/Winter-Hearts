@@ -1,3 +1,8 @@
 a.active {
   color: #EF4323;
 }
+
+
+#itemType {
+    border-right: 16px solid transparent;
+}

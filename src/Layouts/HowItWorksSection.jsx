@@ -9,21 +9,21 @@ const HowItWorksSection = () => {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="p-6 bg-white shadow-lg rounded-lg">
+          <div data-aos="zoom-in-right" data-aos-duration="500" className="p-6 bg-white shadow-lg rounded-lg">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Step 1: Choose What to Donate</h4>
             <p className="text-gray-700 mb-4">
               Go through your wardrobe and select gently used or new winter clothing such as jackets, sweaters, scarves, gloves, and hats. Make sure the items are clean and in good condition.
             </p>
           </div>
 
-          <div className="p-6 bg-white shadow-lg rounded-lg">
+          <div data-aos="zoom-in" data-aos-duration="500" className="p-6 bg-white shadow-lg rounded-lg">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Step 2: Find a Collection Point</h4>
             <p className="text-gray-700 mb-4">
               Locate the nearest donation collection point using our interactive map or contact a volunteer. Collection points are located in major cities and rural areas.
             </p>
           </div>
 
-          <div className="p-6 bg-white shadow-lg rounded-lg">
+          <div data-aos="zoom-in-left" data-aos-duration="500" className="p-6 bg-white shadow-lg rounded-lg">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Step 3: Drop Off Your Donation</h4>
             <p className="text-gray-700 mb-4">
               Drop off your items at the designated collection points. If you need help, our volunteers will assist you in the donation process. Your contribution will be sorted and delivered to those in need.
@@ -37,22 +37,22 @@ const HowItWorksSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+          <div data-aos="flip-left" data-aos-duration="1000" className="p-6 bg-white shadow-lg rounded-lg text-center">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Dhaka</h4>
           </div>
-          <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+          <div data-aos="flip-up" data-aos-duration="1000" className="p-6 bg-white shadow-lg rounded-lg text-center">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Chittagong</h4>
           </div>
-          <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+          <div data-aos="flip-right" data-aos-duration="1000" className="p-6 bg-white shadow-lg rounded-lg text-center">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Khulna</h4>
           </div>
-          <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+          <div data-aos="flip-right" data-aos-duration="1000" className="p-6 bg-white shadow-lg rounded-lg text-center">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Rajshahi</h4>
           </div>
-          <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+          <div data-aos="flip-up" data-aos-duration="1000" className="p-6 bg-white shadow-lg rounded-lg text-center">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Barisal</h4>
           </div>
-          <div className="p-6 bg-white shadow-lg rounded-lg text-center">
+          <div data-aos="flip-left" data-aos-duration="1000" className="p-6 bg-white shadow-lg rounded-lg text-center">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Sylhet</h4>
           </div>
         </div>

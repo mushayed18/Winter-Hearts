@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { DonationContext } from "../Root/Root";
+import Swal from "sweetalert2";
 
 const DonationDetails = () => {
   const { detailId } = useParams();
@@ -11,6 +12,12 @@ const DonationDetails = () => {
 
   const handleFormClick = (e) => {
     e.preventDefault();
+
+    Swal.fire({
+      title: "Thank you!",
+      text: "We will reach your destination soon",
+      icon: "success",
+    });
   };
 
   return (
@@ -57,6 +64,7 @@ const DonationDetails = () => {
               type="text"
               placeholder="e.g., 2 jackets, 3 blankets"
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              required
             />
           </div>
 
@@ -70,6 +78,7 @@ const DonationDetails = () => {
             <select
               id="itemType"
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              required
             >
               <option value="">Select Item Type</option>
               <option value="blanket">Blanket</option>
@@ -90,6 +99,7 @@ const DonationDetails = () => {
               type="text"
               placeholder="e.g., House 12, Road 5, Dhanmondi, Dhaka"
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
+              required
             />
           </div>
 

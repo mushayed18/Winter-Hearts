@@ -16,15 +16,15 @@ const About = () => {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="p-6 bg-white shadow-lg rounded-lg">
+          <div data-aos="fade-right" data-aos-duration="500" className="p-6 bg-white shadow-lg rounded-lg">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Donate Winter Clothing</h4>
             <p className="text-gray-700 mb-4">
               Your clothing donation can help someone stay warm during the coldest months. Whether it's jackets, sweaters, gloves, or scarves, your contribution can make a world of difference.
             </p>
             <button className="btn btn-neutral bg-primaryColor text-white px-6 py-3 rounded-md bg-[#EF4323]">Donate Now</button>
           </div>
-
-          <div className="p-6 bg-white shadow-lg rounded-lg">
+ 
+          <div data-aos="fade-up" data-aos-duration="500" className="p-6 bg-white shadow-lg rounded-lg">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Volunteer</h4>
             <p className="text-gray-700 mb-4">
               Volunteering with Winter Donation gives you the chance to directly help people in need. Assist with sorting, packing, and distributing donated clothes to the rural areas most affected by the cold.
@@ -32,7 +32,7 @@ const About = () => {
             <button className="btn btn-neutral bg-primaryColor text-white px-6 py-3 rounded-md bg-[#EF4323]">Become a Volunteer</button>
           </div>
 
-          <div className="p-6 bg-white shadow-lg rounded-lg">
+          <div data-aos="fade-left" data-aos-duration="500" className="p-6 bg-white shadow-lg rounded-lg">
             <h4 className="text-xl font-semibold text-primaryColor mb-4">Spread the Word</h4>
             <p className="text-gray-700 mb-4">
               Help us expand our reach by sharing this platform with your friends and family. The more people know about it, the more support we can gather to help those who need it most.
