@@ -1,5 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const DonationCard = ({ data }) => {
-  const {image, title, description, division} = data;
+  const {id, image, title, description, division} = data;
+
+  const navigate = useNavigate()
+
+  const handleShowDetails = () => {
+    navigate(`/donation-details/${id}`)
+  }
 
   return (
     <div className="card bg-base-100 w-80 shadow-xl rounded-none">
@@ -15,7 +23,7 @@ const DonationCard = ({ data }) => {
         <p>{description}</p>
         <div className="card-actions justify-between items-center">
           <p className="font-medium text-base">{division}</p>  
-          <button className="btn bg-[#EF4323] text-white">Donate Now</button>
+          <button onClick={handleShowDetails} className="btn bg-[#EF4323] text-white">Donate Now</button>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import Home from "./Pages/Home";
 import AuthProvider from "./Provider/AuthProvider";
 import DonationCampaign from "./Pages/DonationCampaign";
+import DonationDetails from "./Pages/DonationDetails";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/donation-campaigns",
         element: <DonationCampaign></DonationCampaign>,
+      },
+      {
+        path: "/donation-details/:detailId",
+        element: <DonationDetails></DonationDetails>,
       },
     ],
   },
