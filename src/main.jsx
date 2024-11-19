@@ -11,6 +11,10 @@ import Home from "./Pages/Home";
 import AuthProvider from "./Provider/AuthProvider";
 import DonationCampaign from "./Pages/DonationCampaign";
 import DonationDetails from "./Pages/DonationDetails";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import HowToHelp from "./Pages/HowToHelp";
+import Dashboard from "./Pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +33,22 @@ const router = createBrowserRouter([
       {
         path: "/donation-details/:detailId",
         element: <DonationDetails></DonationDetails>,
+      },
+      {
+        path: "/how-to-help",
+        element: <HowToHelp></HowToHelp>,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
     ],
   },

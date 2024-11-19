@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import icon from "../assets/icon.png";
 
 const Navbar = () => {
@@ -22,12 +22,19 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+
+  const navigate = useNavigate();
+
+  const handleLoginBtn = () => {
+    navigate('/login');
+  }
+
   const links = (
     <div className="font-normal text-base flex flex-col lg:flex-row gap-3 md:gap-7">
       <NavLink to='/'>Home</NavLink>
       <NavLink to='/donation-campaigns'>Donation campaigns</NavLink>
-      <NavLink>How to Help</NavLink>
-      <NavLink>Dashboard</NavLink>
+      <NavLink to='/how-to-help'>How to Help</NavLink>
+      <NavLink to='/dashboard'>Dashboard</NavLink>
     </div>
   );
 
@@ -70,7 +77,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <p className="btn border bg-[#EF4323] text-white">Login</p>
+          <button onClick={handleLoginBtn} className="btn border bg-[#EF4323] text-white">Login</button>
         </div>
       </div>
     </div>
