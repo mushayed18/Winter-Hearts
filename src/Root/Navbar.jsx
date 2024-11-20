@@ -1,7 +1,7 @@
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import icon from "../assets/icon.png";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -14,7 +14,7 @@ const Navbar = () => {
       } else {
         setShowNavbar(true);
       }
-      setLastScrollY(window.scrollY); 
+      setLastScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,25 +23,29 @@ const Navbar = () => {
   }, [lastScrollY]);
 
 
+  const { user, signOutUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleLoginBtn = () => {
-    navigate('/login');
-  }
+    navigate("/login");
+  };
 
   const links = (
     <div className="font-normal text-base flex flex-col lg:flex-row gap-3 md:gap-7">
-      <NavLink to='/'>Home</NavLink>
-      <NavLink to='/donation-campaigns'>Donation campaigns</NavLink>
-      <NavLink to='/how-to-help'>How to Help</NavLink>
-      <NavLink to='/dashboard'>Dashboard</NavLink>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/donation-campaigns">Donation campaigns</NavLink>
+      <NavLink to="/how-to-help">How to Help</NavLink>
+      <NavLink to="/dashboard">Dashboard</NavLink>
     </div>
   );
 
   return (
     <div>
       <div
-        className={`navbar bg-base-300 ${showNavbar ? "top-0" : "-top-24"} transition-all duration-300 fixed w-full z-50`}
+        className={`navbar bg-base-300 ${
+          showNavbar ? "top-0" : "-top-24"
+        } transition-all duration-300 fixed w-full z-50`}
       >
         <div className="navbar-start">
           <div className="dropdown">
@@ -76,13 +80,31 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end">
-          <button onClick={handleLoginBtn} className="btn border bg-[#EF4323] text-white">Login</button>
-        </div>
+        {user ? (
+          <div className="navbar-end">
+            <div className="border border-[#EF4323] w-10 h-10 rounded-full mr-1">
+              <img className="w-full h-full object-cover rounded-full" src={user.photoURL} alt="" />
+            </div>
+            <button
+              onClick={signOutUser}
+              className="btn border bg-[#EF4323] text-white"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="navbar-end">
+            <button
+              onClick={handleLoginBtn}
+              className="btn border bg-[#EF4323] text-white"
+            >
+              Login
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default Navbar;
-

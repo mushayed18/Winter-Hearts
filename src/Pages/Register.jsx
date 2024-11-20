@@ -1,16 +1,32 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
+  const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
 
-  const {createUser} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+
+    createUser(email, password)
+      .then((result) => {
+        setUser(result.user);
+        updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+          navigate('/');
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
 
   return (
@@ -74,7 +90,10 @@ const Register = () => {
             </div>
             <div className="pt-5">
               <p className="text-sm text-center">
-                Already have an account? Login <Link className="text-[#EF4323]" to="/login">here</Link>
+                Already have an account? Login{" "}
+                <Link className="text-[#EF4323]" to="/login">
+                  here
+                </Link>
               </p>
             </div>
           </form>

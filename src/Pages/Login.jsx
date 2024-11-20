@@ -1,12 +1,25 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const { signInUser, user } = useContext(AuthContext);
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
-  }
+
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
 
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -47,7 +60,12 @@ const Login = () => {
               <button className="btn bg-[#EF4323] text-white">Login</button>
             </div>
             <div className="pt-5">
-                <p className="text-sm text-center">New to this website? Register <Link className="text-[#EF4323]" to="/register">here</Link></p>
+              <p className="text-sm text-center">
+                New to this website? Register{" "}
+                <Link className="text-[#EF4323]" to="/register">
+                  here
+                </Link>
+              </p>
             </div>
           </form>
         </div>
