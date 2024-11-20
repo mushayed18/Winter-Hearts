@@ -15,6 +15,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import HowToHelp from "./Pages/HowToHelp";
 import Dashboard from "./Pages/Dashboard";
+import UpdateProfile from "./Pages/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/update-profile",
+        element: <UpdateProfile></UpdateProfile>,
       },
     ],
   },

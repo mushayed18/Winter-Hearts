@@ -32,6 +32,7 @@ const Login = () => {
   const handleGoogleBtn = () => {
     signInWithGoogle().then((result) => {
       setUser(result.user);
+      navigate('/');
     })
   }
 
