@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
@@ -50,6 +51,9 @@ const Register = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
+      <Helmet>
+        <title>Register | Winter Hearts</title>
+      </Helmet>
       <div className="hero-content flex-col pt-9 md:pt-24">
         <div className="text-center">
           <h1 className="text-3xl font-normal pt-10 md:pt-0">Register now!</h1>

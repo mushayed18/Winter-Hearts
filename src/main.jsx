@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import "./App.css";
-import 'animate.css';
+import "animate.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root/Root";
@@ -16,6 +16,7 @@ import Register from "./Pages/Register";
 import HowToHelp from "./Pages/HowToHelp";
 import Dashboard from "./Pages/Dashboard";
 import UpdateProfile from "./Pages/UpdateProfile";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -61,8 +62,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </HelmetProvider>
   </StrictMode>
 );

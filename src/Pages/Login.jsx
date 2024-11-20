@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signInUser, user, setUser, signInWithGoogle } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const Login = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
+      <Helmet>
+        <title>Login | Winter Hearts</title>
+      </Helmet>
       <div className="hero-content flex-col pt-9 md:pt-24">
         <div className="text-center">
           <h1 className="text-3xl font-normal pt-10 md:pt-0">Login now!</h1>

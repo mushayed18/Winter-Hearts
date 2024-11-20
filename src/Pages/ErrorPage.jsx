@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useNavigate, useRouteError } from "react-router-dom";
 
 export default function ErrorPage() {
@@ -14,9 +15,12 @@ export default function ErrorPage() {
       id="error-page"
       className="min-h-screen flex flex-col items-center justify-center border-2 gap-5"
     >
-      <h1 className="font-bold text-5xl">Oops!</h1>
-      <p className="text-2xl">Sorry, an unexpected error has occurred.</p>
-      <p className="font-bold text-2xl">
+      <Helmet>
+        <title>Error | Winter Hearts</title>
+      </Helmet>
+      <h1 className="font-bold text-5xl text-center">Oops!</h1>
+      <p className="text-2xl text-center">Sorry, an unexpected error has occurred.</p>
+      <p className="font-bold text-2xl text-center">
         <i>{error.statusText || error.message}</i>
       </p>
       <div className="form-control mt-6">

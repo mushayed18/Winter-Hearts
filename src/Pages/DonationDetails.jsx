@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { DonationContext } from "../Root/Root";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const DonationDetails = () => {
   const { detailId } = useParams();
@@ -22,6 +23,9 @@ const DonationDetails = () => {
 
   return (
     <div className="container md:w-[80%] lg:w-[70%] mx-auto my-24 px-4 md:px-8">
+      <Helmet>
+        <title>Donation Details | Winter Hearts</title>
+      </Helmet>
       <div className="bg-white shadow-md rounded-lg p-6">
         <h1 className="text-3xl font-bold mb-4 text-center">
           {campaign.title}

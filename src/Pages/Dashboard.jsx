@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -14,6 +15,9 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Dashboard | Winter Hearts</title>
+      </Helmet>  
       {user && (
         <div className="bg-base-300 border-2 rounded-2xl w-11/12 md:w-10/12 mx-auto my-24 flex flex-col justify-center items-center gap-8 py-24">
           <div>

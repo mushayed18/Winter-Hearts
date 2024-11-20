@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const UpdateProfile = () => {
+  const { updateUserProfile } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const email = e.target.name.value;
-    const password = e.target.photo.value;
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+
+    updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+      navigate("/dashboard");
+    });
   };
 
   return (
     <div className="hero bg-base-200 min-h-screen">
+      <Helmet>
+        <title>Update profile | Winter Hearts</title>
+      </Helmet>  
       <div className="hero-content flex-col pt-9 md:pt-12">
         <div className="text-center">
           <h1 className="text-3xl font-normal pt-10 md:pt-0">
@@ -43,7 +57,9 @@ const UpdateProfile = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#EF4323] text-white">Update Information</button>
+              <button className="btn bg-[#EF4323] text-white">
+                Update Information
+              </button>
             </div>
           </form>
         </div>
