@@ -1,11 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
+import { IoEyeOutline } from "react-icons/io5";
+import { FaRegEyeSlash } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
-  const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const [visibility, setVisibility] = useState(false);
+
+  const handleToggle = () => {
+    setVisibility(!visibility);
+  }
+
+  const handleGoogleBtn = () => {
+    signInWithGoogle().then((result) => {
+      setUser(result.user);
+    })
+  }
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -23,9 +39,11 @@ const Register = () => {
         });
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: 'This email is already taken. Please try with different one.'
+        });
       });
   };
 
@@ -73,20 +91,31 @@ const Register = () => {
                 required
               />
             </div>
-            <div className="form-control">
+            <div className="relative form-control">
               <label className="label">
                 <span className="label-text md:w-96">Password</span>
               </label>
               <input
-                type="password"
+                type={visibility ? 'text' : 'password'}
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required
               />
+              <button onClick={handleToggle} className="absolute top-12 left-56 md:left-72">
+                {
+                  visibility ? <IoEyeOutline size={20} /> : <FaRegEyeSlash size={20} />
+                }
+              </button>
             </div>
             <div className="form-control mt-6">
               <button className="btn bg-[#EF4323] text-white">Register</button>
+            </div>
+            <div className="form-control mt-1">
+              <button onClick={handleGoogleBtn} className="btn border-2">
+                Login with Google
+                <FcGoogle size={24}/>
+              </button>
             </div>
             <div className="pt-5">
               <p className="text-sm text-center">
