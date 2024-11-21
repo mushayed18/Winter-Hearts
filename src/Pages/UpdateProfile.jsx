@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const UpdateProfile = () => {
   const { updateUserProfile } = useContext(AuthContext);
@@ -15,6 +16,11 @@ const UpdateProfile = () => {
     const photo = e.target.photo.value;
 
     updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Your profile has been updated!",
+      });
       navigate("/dashboard");
     });
   };

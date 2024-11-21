@@ -6,9 +6,10 @@ import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
+import Loading from "./Loading";
 
 const Register = () => {
-  const { createUser, setUser, updateUserProfile, signInWithGoogle } =
+  const { createUser, setUser, updateUserProfile, signInWithGoogle, loading } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -61,6 +62,13 @@ const Register = () => {
         });
       });
   };
+
+
+  console.log(loading);
+  
+  if(loading) {
+    return <Loading></Loading>
+  }
 
   return (
     <div className="hero bg-base-200 min-h-screen">

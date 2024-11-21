@@ -17,6 +17,8 @@ import HowToHelp from "./Pages/HowToHelp";
 import Dashboard from "./Pages/Dashboard";
 import UpdateProfile from "./Pages/UpdateProfile";
 import { HelmetProvider } from "react-helmet-async";
+import ForgetPassword from "./Pages/ForgetPassword";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/donation-details/:detailId",
-        element: <DonationDetails></DonationDetails>,
+        element: <PrivateRoute><DonationDetails></DonationDetails></PrivateRoute>,
       },
       {
         path: "/how-to-help",
@@ -42,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       },
       {
         path: "/login",
@@ -54,7 +56,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/update-profile",
-        element: <UpdateProfile></UpdateProfile>,
+        element: <PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>,
+      },
+      {
+        path: "/forget-password",
+        element: <ForgetPassword></ForgetPassword>,
       },
     ],
   },

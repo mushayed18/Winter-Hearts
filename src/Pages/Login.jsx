@@ -4,11 +4,16 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
+import Loading from "./Loading";
 
 const Login = () => {
-  const { signInUser, user, setUser, signInWithGoogle } = useContext(AuthContext);
+  const { signInUser, user, setUser, signInWithGoogle, setGmailAddress, loading, setLoading } = useContext(AuthContext);
 
   const navigate = useNavigate();
+
+  const storeEmail = (e) => {
+    setGmailAddress(e.target.value);
+  }
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +23,7 @@ const Login = () => {
 
     signInUser(email, password)
       .then((result) => {
-        const user = result.user;
+        setUser(result.user);
         navigate('/');
       })
       .catch((error) => {
@@ -37,6 +42,12 @@ const Login = () => {
     })
   }
 
+  console.log(loading);
+  
+  if(loading) {
+    return <Loading></Loading>
+  }
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <Helmet>
@@ -53,6 +64,7 @@ const Login = () => {
                 <span className="label-text md:w-96">Email</span>
               </label>
               <input
+                onKeyUp={storeEmail}
                 type="email"
                 name="email"
                 placeholder="email address"
@@ -72,7 +84,7 @@ const Login = () => {
                 required
               />
               <label className="label">
-                <Link className="text-sm font-normal">Forgot password?</Link>
+                <Link className="text-sm font-normal" to='/forget-password'>Forgot password?</Link>
               </label>
             </div>
             <div className="form-control mt-6">
