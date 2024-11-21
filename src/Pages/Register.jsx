@@ -8,22 +8,25 @@ import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { createUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, setUser, updateUserProfile, signInWithGoogle } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const [visibility, setVisibility] = useState(false);
 
+  const [valid, setValid] = useState("");
+
   const handleToggle = () => {
     setVisibility(!visibility);
-  }
+  };
 
   const handleGoogleBtn = () => {
     signInWithGoogle().then((result) => {
       setUser(result.user);
-      navigate('/');
-    })
-  }
+      navigate("/");
+    });
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -33,18 +36,28 @@ const Register = () => {
     const name = e.target.name.value;
     const photo = e.target.photo.value;
 
+    const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+
+    if (!regex.test(password)) {
+      setValid(
+        "Password must be at least 6 characters long, include at least one uppercase letter, and one lowercase letter"
+      );
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
         setUser(result.user);
         updateUserProfile({ displayName: name, photoURL: photo }).then(() => {
-          navigate('/');
+          navigate("/");
+          setValid('');
         });
       })
       .catch((error) => {
         Swal.fire({
           icon: "error",
           title: "Error",
-          text: 'This email is already taken. Please try with different one.'
+          text: "This email is already taken. Please try with different one.",
         });
       });
   };
@@ -101,16 +114,22 @@ const Register = () => {
                 <span className="label-text md:w-96">Password</span>
               </label>
               <input
-                type={visibility ? 'text' : 'password'}
+                type={visibility ? "text" : "password"}
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required
               />
-              <button onClick={handleToggle} className="absolute top-12 left-56 md:left-72">
-                {
-                  visibility ? <IoEyeOutline size={20} /> : <FaRegEyeSlash size={20} />
-                }
+              {valid && <p className="text-red-700 text-sm">{valid}</p>}
+              <button
+                onClick={handleToggle}
+                className="absolute top-12 left-56 md:left-72"
+              >
+                {visibility ? (
+                  <IoEyeOutline size={20} />
+                ) : (
+                  <FaRegEyeSlash size={20} />
+                )}
               </button>
             </div>
             <div className="form-control mt-6">
@@ -119,7 +138,7 @@ const Register = () => {
             <div className="form-control mt-1">
               <button onClick={handleGoogleBtn} className="btn border-2">
                 Login with Google
-                <FcGoogle size={24}/>
+                <FcGoogle size={24} />
               </button>
             </div>
             <div className="pt-5">
