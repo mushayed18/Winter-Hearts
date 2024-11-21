@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { FcGoogle } from "react-icons/fc";
@@ -42,10 +42,13 @@ const Login = () => {
     })
   }
 
-  console.log(loading);
   
   if(loading) {
     return <Loading></Loading>
+  }
+
+  if(user) {
+    return <Navigate to='/'></Navigate>
   }
 
   return (

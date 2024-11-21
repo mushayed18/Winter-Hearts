@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { IoEyeOutline } from "react-icons/io5";
@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet-async";
 import Loading from "./Loading";
 
 const Register = () => {
-  const { createUser, setUser, updateUserProfile, signInWithGoogle, loading } =
+  const { createUser, user, setUser, updateUserProfile, signInWithGoogle, loading } =
     useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -64,10 +64,12 @@ const Register = () => {
   };
 
 
-  console.log(loading);
-  
   if(loading) {
     return <Loading></Loading>
+  }
+
+  if(user) {
+    return <Navigate to='/'></Navigate>
   }
 
   return (

@@ -1,18 +1,35 @@
+import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
 import { DonationContext } from "../Root/Root";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 
 const DonationDetails = () => {
   const { detailId } = useParams();
-
   const donationData = useContext(DonationContext);
-
   const campaign = donationData.find((item) => item.id === parseInt(detailId));
+
+  const [formData, setFormData] = useState({
+    quantity: "",
+    itemType: "",
+    pickupLocation: "",
+    notes: "",
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [id]: value }));
+  };
 
   const handleFormClick = (e) => {
     e.preventDefault();
+
+    setFormData({
+      quantity: "",
+      itemType: "",
+      pickupLocation: "",
+      notes: "",
+    });
 
     Swal.fire({
       title: "Thank you!",
@@ -66,6 +83,8 @@ const DonationDetails = () => {
             <input
               id="quantity"
               type="text"
+              value={formData.quantity}
+              onChange={handleChange}
               placeholder="e.g., 2 jackets, 3 blankets"
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
               required
@@ -81,6 +100,8 @@ const DonationDetails = () => {
             </label>
             <select
               id="itemType"
+              value={formData.itemType}
+              onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
               required
             >
@@ -101,6 +122,8 @@ const DonationDetails = () => {
             <input
               id="pickupLocation"
               type="text"
+              value={formData.pickupLocation}
+              onChange={handleChange}
               placeholder="e.g., House 12, Road 5, Dhanmondi, Dhaka"
               className="w-full border border-gray-300 rounded-lg px-4 py-2"
               required
@@ -117,6 +140,8 @@ const DonationDetails = () => {
             <textarea
               id="notes"
               rows="4"
+              value={formData.notes}
+              onChange={handleChange}
               placeholder="Add any additional details..."
               className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-primaryColor"
             ></textarea>

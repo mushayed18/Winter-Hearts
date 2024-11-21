@@ -5,7 +5,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 import winterImage1 from "../assets/winter1.jpeg";
@@ -16,7 +15,7 @@ import winterImage5 from "../assets/winter5.jpeg";
 
 const SwiperLayout = () => {
   return (
-    <div className='border-2 md:w-[80%] mx-auto h-[25rem]'>
+    <div className='md:w-[90%] mx-auto h-[25rem] mt-24'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -29,7 +28,7 @@ const SwiperLayout = () => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper w-[90%] mx-auto"
       >
         <SwiperSlide>
           <img className='w-full h-[25rem] object-cover' src={winterImage1} alt="" />

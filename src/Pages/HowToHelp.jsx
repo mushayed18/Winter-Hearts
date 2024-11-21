@@ -1,5 +1,8 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import Loading from "./Loading";
 
 
 const HowToHelp = () => {
@@ -7,6 +10,12 @@ const HowToHelp = () => {
 
   const handleGetStartedBtn = () => {
     navigate('/donation-campaigns')
+  }
+
+  const {loading} = useContext(AuthContext);
+
+  if(loading) {
+    return <Loading></Loading>
   }
 
   return (

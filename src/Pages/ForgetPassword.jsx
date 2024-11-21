@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Navigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const ForgetPassword = () => {
-  const { gmailAddress, resetPassword } = useContext(AuthContext);
+  const { gmailAddress, resetPassword, user, loading } = useContext(AuthContext);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +29,14 @@ const ForgetPassword = () => {
         });
       });
   };
+
+  if(loading) {
+    return <Loading></Loading>
+  }
+
+  if(user) {
+    return <Navigate to='/'></Navigate>
+  }
 
   return (
     <div className="hero bg-base-200 min-h-screen">
