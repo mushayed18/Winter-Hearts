@@ -25,10 +25,10 @@ https://winter-hearts.web.app/
 
 
 ## **NPM Packages Used**
-animate.css
-aos
-react router
-react-helmet-async
-sweetalert2
-swiper
-react-icons
+1. animate.css
+2. aos
+3. react router
+4. react-helmet-async
+5. sweetalert2
+6. swiper
+7. react-icons
