@@ -81,7 +81,7 @@ const Register = () => {
         <div className="text-center">
           <h1 className="text-3xl font-normal pt-10 md:pt-0">Register now!</h1>
         </div>
-        <div className="card bg-base-100 w-[90%] md:w-full max-w-sm shrink-0 shadow-2xl rounded-none">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl rounded-none">
           <form onSubmit={handleFormSubmit} className="card-body">
             <div className="form-control">
               <label className="label">
