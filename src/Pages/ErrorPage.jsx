@@ -19,7 +19,7 @@ export default function ErrorPage() {
         <title>Error | Winter Hearts</title>
       </Helmet>
       <h1 className="font-bold text-5xl text-center">Oops!</h1>
-      <p className="text-2xl text-center">Sorry, an unexpected error has occurred.</p>
+      <p className="text-2xl text-center">Sorry, an unexpected error has occurred!</p>
       <p className="font-bold text-2xl text-center">
         <i>{error.statusText || error.message}</i>
       </p>
